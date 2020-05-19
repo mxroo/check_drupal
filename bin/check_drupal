@@ -422,10 +422,10 @@ check_core_warnings() {
 	# read comma separated core warnings
 	# No URI specified (single site)
 	if [ -z "${_multisite_uri}" ]; then
-		_core_warnings="$(LC_MESSAGES=${LOCALE} ${DRUSH} --root="${_drupal_root}" core-requirements --severity=1 --no-field-labels --format=table --fields='severity,title' 2>/dev/null)"
+		_core_warnings="$(LC_MESSAGES=${LOCALE} ${DRUSH} --root="${_drupal_root}" core-requirements --severity=1 --ignore=update_contrib,update_core --no-field-labels --format=table --fields='severity,title' 2>/dev/null)"
 		_ret=$?
 	else
-		_core_warnings="$(LC_MESSAGES=${LOCALE} ${DRUSH} --root="${_drupal_root}" --uri="${_multisite_uri}" core-requirements --severity=1 --no-field-labels --format=table --fields='severity,title' 2>/dev/null)"
+		_core_warnings="$(LC_MESSAGES=${LOCALE} ${DRUSH} --root="${_drupal_root}" --uri="${_multisite_uri}" core-requirements --severity=1 --ignore=update_contrib,update_core --no-field-labels --format=table --fields='severity,title' 2>/dev/null)"
 		_ret=$?
 	fi
 
