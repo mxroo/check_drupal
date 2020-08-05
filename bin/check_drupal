@@ -1008,6 +1008,8 @@ if [ -n "$CHECK_E" ]; then
 
 	SEVERITY="$CHECK_E"
 
+	${DRUSH} --root="${DRUPAL_ROOT}" up -n >/dev/null 2>&1
+
 	# Execute Command
 	MSG_CORE_ERROR="$(check_core_errors "${DRUPAL_ROOT}" "${MULTISITE_URI}")"
 	TMP_EXIT="$?"
