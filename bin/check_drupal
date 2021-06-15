@@ -538,8 +538,8 @@ check_cron() {
 	secondssince=$(($now - $_cron))
 	minutessince=$(($secondssince / 60))
 	
-	if [ "$minutessince" -gt 480 ]; then 
-		echo "Cron did not run within last 480 minutes"
+	if [ "$minutessince" -gt 600 ]; then 
+		echo "Cron did not run within the last 600 minutes"
 		return $EXIT_ERR
         fi
         return $EXIT_OK
